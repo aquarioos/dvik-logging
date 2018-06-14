@@ -10,7 +10,7 @@ Najnowszą wersję paczki można pobrać z GitHuba.
 
 `pip install git+https://github.com/aquarioos/dvik-logging/#egg=dvik-logging`
 
-```
+```sh
 (venv) daniel@Vela ~ $ pip install git+https://github.com/aquarioos/dvik-logging/#egg=dvik-logging
 Collecting dvik-logging from git+https://github.com/aquarioos/dvik-logging/#egg=dvik-logging
   Cloning https://github.com/aquarioos/dvik-logging/ to /private/var/folders/3h/hvkgh03x4wz5ygjn7dxyp3zw0000gn/T/pip-install-pp9_ydp0/dvik-logging
@@ -25,7 +25,7 @@ Successfully installed dvik-logging-0.2
 
 Jeśli nie było żadnych błędów, to *dvik-logging* powinien znajdować się na naszej liście pakietów.
 
-```
+```sh
 (venv) daniel@Vela ~ $ pip freeze
 dvik-logging==0.2
 (venv) daniel@Vela ~ $
