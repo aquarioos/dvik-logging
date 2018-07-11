@@ -24,20 +24,21 @@ class LEVELS:
     DEBUG = logging.DEBUG
 
 
-def get_file_handler(log_file_path, log_level=LEVELS.INFO, formatter=FORMATTERS.CLASSIC,
-                     dt_formatter=DT_FORMATTERS.CLASSIC):
-    file_handler = logging.FileHandler(filename=log_file_path)
+def get_file_handler(log_file_path, log_level=LEVELS.INFO,
+                     formatter=FORMATTERS.CLASSIC, dt_formatter=DT_FORMATTERS.CLASSIC):
+    file_handler = logging.FileHandler(log_file_path)
     file_handler.setLevel(log_level)
 
     fmt = logging.Formatter(formatter)
     fmt.datefmt = dt_formatter
 
-    file_handler.setFormatter(formatter)
+    file_handler.setFormatter(fmt)
 
     return file_handler
 
 
-def get_console_handler(log_level=LEVELS.DEBUG, formatter=FORMATTERS.CLASSIC, dt_formatter=DT_FORMATTERS.CLASSIC):
+def get_console_handler(log_level=LEVELS.DEBUG,
+                        formatter=FORMATTERS.CLASSIC, dt_formatter=DT_FORMATTERS.CLASSIC):
     console_handler = logging.StreamHandler()
     console_handler.setLevel(log_level)
 

@@ -54,3 +54,35 @@ class TestCreation(unittest.TestCase):
                              os.listdir(self.base_path))
         for f_path in map(lambda f_name: os.path.join(self.base_path, f_name), other_files):
             os.remove(f_path)
+
+
+class TestLogging(unittest.TestCase):
+    def setUp(self):
+        curr_time = int(time.time())
+        self.log_file = os.path.abspath(f'test{curr_time}.log')
+        ch = dvl.get_console_handler()
+        self.fh = dvl.get_file_handler(self.log_file)
+        self.logger = dvl.get_logger('testlogger', console_handler=ch, file_handler=self.fh)
+
+    def test_content(self):
+        msg1 = 'jakaś wiadomość 1'
+        msg2 = 'some other message'
+        self.logger.info(msg1)
+        self.logger.warning(msg2)
+        with open(self.log_file, 'r') as fp:
+            lines = fp.read().splitlines()
+        self.assertIn(msg1, lines[0])
+        self.assertIn(msg2, lines[1])
+
+    def test_debug(self):
+        msg = 'wiadomość debugująca'
+        self.logger.debug(msg)
+        with open(self.log_file, 'r') as fp:
+            lines = fp.read().splitlines()
+        if lines:
+            self.assertNotIn(msg, lines[-1])
+
+    def tearDown(self):
+        self.fh.flush()
+        self.fh.close()
+        os.remove(self.log_file)
