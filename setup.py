@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='dvik-logging',
-    version='0.4',
+    version='1.0',
     description='Pakiet pisany w ramach projektu DVik. Jest to dodatkowa warstwa na bibliotekę logging. Umożliwi łatwe pobranie i skonfigurowanie obiektu loggera wraz z odpowiednimi uchwytami (handlerami).',
     url='https://github.com/aquarioos/dvik-logging',
     author='Daniel Taranta',
